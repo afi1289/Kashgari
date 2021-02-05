@@ -12,7 +12,7 @@ from .bi_gru_model import BiGRU_Model
 from .bi_gru_crf_model import BiGRU_CRF_Model
 from .bi_lstm_model import BiLSTM_Model
 from .bi_lstm_crf_model import BiLSTM_CRF_Model
-from .cnn_lstm_model import CNN_LSTM_Model
+from .cnn_lstm_model import LSTM_CNN_Model
 from .double_blstm import DoubleBLSTMModel
 
 ALL_MODELS = [
