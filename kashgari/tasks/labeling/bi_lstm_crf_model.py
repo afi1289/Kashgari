@@ -20,11 +20,11 @@ class BiLSTM_CRF_Model(ABCLabelingModel):
     def default_hyper_parameters(cls) -> Dict[str, Dict[str, Any]]:
         return {
             'layer_blstm': {
-                'units': 128,
+                'units': 256,
                 'return_sequences': True
             },
             'layer_dropout': {
-                'rate': 0.4
+                'rate': 0.25
             },
             'layer_time_distributed': {},
             'layer_activation': {
