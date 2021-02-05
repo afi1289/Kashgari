@@ -21,11 +21,11 @@ class BiGRU_Model(ABCLabelingModel):
     def default_hyper_parameters(cls) -> Dict[str, Dict[str, Any]]:
         return {
             'layer_bgru': {
-                'units': 128,
+                'units': 256,
                 'return_sequences': True
             },
             'layer_dropout': {
-                'rate': 0.4
+                'rate': 0.25
             },
             'layer_time_distributed': {},
             'layer_activation': {
@@ -54,23 +54,4 @@ class BiGRU_Model(ABCLabelingModel):
 
 
 if __name__ == "__main__":
-    from kashgari.corpus import ChineseDailyNerCorpus
-    from kashgari.callbacks import EvalCallBack
-
-    train_x, train_y = ChineseDailyNerCorpus.load_data('train')
-    valid_x, valid_y = ChineseDailyNerCorpus.load_data('valid')
-    test_x, test_y = ChineseDailyNerCorpus.load_data('test')
-
-    model = BiGRU_Model(sequence_length=10)
-
-    eval_callback = EvalCallBack(kash_model=model,
-                                 x_data=valid_x,
-                                 y_data=valid_y,
-                                 truncating=True,
-                                 step=1)
-
-    model.fit(train_x[:300], train_y[:300], valid_x, valid_y, epochs=1,
-              callbacks=[eval_callback])
-    y = model.predict(train_x[:200])
-    model.tf_model.summary()
-    model.evaluate(test_x, test_y)
+    pass
