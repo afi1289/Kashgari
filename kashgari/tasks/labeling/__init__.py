@@ -20,7 +20,7 @@ ALL_MODELS = [
     BiGRU_CRF_Model,
     BiLSTM_Model,
     BiLSTM_CRF_Model,
-    CNN_LSTM_Model,
+    LSTM_CNN_Model,
     DoubleBLSTMModel,
 ]
 
