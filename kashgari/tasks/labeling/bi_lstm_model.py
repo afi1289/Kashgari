@@ -20,11 +20,11 @@ class BiLSTM_Model(ABCLabelingModel):
     def default_hyper_parameters(cls) -> Dict[str, Dict[str, Any]]:
         return {
             'layer_blstm': {
-                'units': 128,
+                'units': 256,
                 'return_sequences': True
             },
             'layer_dropout': {
-                'rate': 0.4
+                'rate': 0.25
             },
             'layer_time_distributed': {},
             'layer_activation': {
@@ -52,10 +52,4 @@ class BiLSTM_Model(ABCLabelingModel):
 
 
 if __name__ == "__main__":
-    from kashgari.corpus import ChineseDailyNerCorpus
-
-    x, y = ChineseDailyNerCorpus.load_data()
-    x_valid, y_valid = ChineseDailyNerCorpus.load_data('valid')
-    model = BiLSTM_Model()
-    model.fit(x, y, x_valid, y_valid, epochs=2)
-    model.evaluate(*ChineseDailyNerCorpus.load_data('test'))
+    pass
